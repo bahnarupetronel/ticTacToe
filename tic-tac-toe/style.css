@@ -1,0 +1,33 @@
+/* Simple CSS Reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* url(../images)  ---> how to jump out of a folder*/
+    background: white;
+    color: #222;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 14px;
+    
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+#container {
+    background: white;
+    width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 0 20px;
+}
+
+p {
+    margin: 10px 0;
+}
