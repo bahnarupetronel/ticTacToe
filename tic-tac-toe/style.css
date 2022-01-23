@@ -1,33 +1,93 @@
-/* Simple CSS Reset*/
-
-* {
-    margin: 0;
-    padding: 0;
-}
+/* Grid styling*/
 
 body {
-    /* url(../images)  ---> how to jump out of a folder*/
-    background: white;
-    color: #222;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    font-size: 14px;
-    
+    /* background: url('images/background.jpeg') center center no-repeat;*/
+    background-color: #29252b;
+    background-size: cover;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility; 
 }
 
-#container {
-    background: white;
-    width: 500px;
-    margin: 20px auto;
-    padding: 20px;
+div {
+    display: inline-block;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    position: relative;
 }
 
-h1 {
-    margin: 0 0 20px;
+.grid-item {
+    border: 2px solid black;
+    width: 200px;
+    height: 150px;
+
+    text-align: center;
+    font-size: 130px;
+    color: #F1D2F0;
+    background-color: #ac5fdb;
 }
 
-p {
-    margin: 10px 0;
+/* Player's turn footer*/
+
+.players-turn {
+    border:2px solid black;
+    color: #F1D2F0;
+    text-align: center;
+    display: block;
+    position: relative;
+    width: 606px;
+    height: 180px;
+    margin: 200px auto 0px;
+    font-size: 80px;
+    line-height: 1px;
+    padding: 0; /* reduces the space between the content, and the border, of the p element */
+}
+
+/* Right, left containers */
+
+.left-container, .right-container{
+    border:2px solid black;
+    display: block;
+    color: #F1D2F0;
+    text-align: left;
+    font-size: 80px;
+    width: 350px;
+    margin-top: -660px;
+    padding-top: 0;
+    height: 670px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.left-container {
+    float: left;
+}
+
+.right-container {
+    float: right;
+}
+
+li#second-line  {
+    padding-left: 50px;
+}
+
+li#third-line {
+    padding-left: 100px;
+}
+
+button {
+    text-align: center;
+    width: 300px;
+    height: 120px;
+    font-size: 50px;
+    background-color: #ac5fdb;
+    margin-left: 25px;
+    color: #F1D2F0;
 }
