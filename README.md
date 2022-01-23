@@ -1,1 +1,1 @@
-# Tic Tac Toe project made in javascript, inspired drom The odin project.
+# Tic Tac Toe project made in javascript, inspired from The odin project.
