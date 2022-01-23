@@ -12,6 +12,7 @@ body {
 div {
     display: inline-block;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -32,6 +33,16 @@ div {
     background-color: #ac5fdb;
 }
 
+/* First page*/
+.firstPageContainer {
+    display: block;
+    margin: auto;
+    position: relative;
+    border: 2px solid black;
+    width: 600px;
+    height: 450px;
+}
+
 /* Player's turn footer*/
 
 .players-turn {
@@ -48,6 +59,10 @@ div {
     padding: 0; /* reduces the space between the content, and the border, of the p element */
 }
 
+.players-turn#page1 {
+    margin-top: 46px;
+}
+
 /* Right, left containers */
 
 .left-container, .right-container{
@@ -60,6 +75,10 @@ div {
     margin-top: -660px;
     padding-top: 0;
     height: 670px;
+}
+
+.left-container#page1, .right-container#page1 {
+    margin-top: -660px;
 }
 
 ul {
@@ -82,12 +101,74 @@ li#third-line {
     padding-left: 100px;
 }
 
+/* Buttons */
 button {
+    display: block;
     text-align: center;
+    background-color: #ac5fdb;
+    color: #F1D2F0;
+}
+
+/* First page buttons*/
+button#firstPage {
+    width: 250px;
+    height: 90px;
+    font-size: 50px;
+    margin:20px auto;
+}
+
+/* Second page buttons */
+button#start-over, button#play-again{
     width: 300px;
     height: 120px;
     font-size: 50px;
-    background-color: #ac5fdb;
     margin-left: 25px;
+}
+
+/* Third page buttons*/
+button#backToMenu {
+    font-size: 50px;
+    margin-left: 25px;
+    background-color: #29252b;
+    text-decoration: underline;
+    outline: none;
+    border: none;
+}
+a {
+    color:#F1D2F0;
+    text-decoration: none;
+}
+
+/* Text styling*/
+p, h1{
+    font-size: 50px;
+    color: #F1D2F0;
+    text-align: center;
+}
+
+.thirdPage p{
+    font-size: 20px;
+}
+
+.firstPageContainer p{
+    margin-top: -20px;
+}
+
+.players-turn p{
+    font-size: 80px;
+}
+
+label {
+    margin-left: 30px;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+select {
+    font-size: 35px;
+    border: none;
+    outline: none;
+    background-color: #29252b;
     color: #F1D2F0;
 }
+
