@@ -45,7 +45,7 @@ div {
 
 /* Player's turn footer*/
 
-.players-turn {
+.playerTurn {
     border:2px solid black;
     color: #F1D2F0;
     text-align: center;
@@ -59,7 +59,7 @@ div {
     padding: 0; /* reduces the space between the content, and the border, of the p element */
 }
 
-.players-turn#page1 {
+.playerTurn#page1 {
     margin-top: 46px;
 }
 
@@ -107,6 +107,7 @@ button {
     text-align: center;
     background-color: #ac5fdb;
     color: #F1D2F0;
+    border-radius: 15px 15px;
 }
 
 /* First page buttons*/
@@ -125,18 +126,31 @@ button#start-over, button#play-again{
     margin-left: 25px;
 }
 
-/* Third page buttons*/
-button#backToMenu {
-    font-size: 50px;
-    margin-left: 25px;
-    background-color: #29252b;
-    text-decoration: underline;
-    outline: none;
-    border: none;
-}
+/* Third page tags*/
+
 a {
     color:#F1D2F0;
-    text-decoration: none;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ac5fdb;
+}
+
+a:visited {
+    text-decoration-color: #ac5fdb;
+}
+
+a#backToMenu {
+    font-size: 30px;
+    margin-left: 25px;
+}
+
+a#rules {
+    float: right;
+    margin-top: -42px;
+    margin-right: 100px;
+    font-size: 20px;
 }
 
 /* Text styling*/
@@ -144,6 +158,12 @@ p, h1{
     font-size: 50px;
     color: #F1D2F0;
     text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    margin-left: 25px;
+    margin-top: 50px;
 }
 
 .thirdPage p{
@@ -154,7 +174,7 @@ p, h1{
     margin-top: -20px;
 }
 
-.players-turn p{
+.playerTurn p{
     font-size: 80px;
 }
 
