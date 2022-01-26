@@ -10,29 +10,29 @@
         
         <!-- Table -->
             <div class = "grid-container">
-                <div class = "grid-item" id = "grid-item1">X</div>
-                <div class = "grid-item" id = "grid-item2">O</div>
-                <div class = "grid-item" id = "grid-item3"></div>
-                <div class = "grid-item" id = "grid-item4"></div>
-                <div class = "grid-item" id = "grid-item5">O</div>
-                <div class = "grid-item" id = "grid-item6"></div>
-                <div class = "grid-item" id = "grid-item7">X</div>
-                <div class = "grid-item" id = "grid-item8">O</div>
-                <div class = "grid-item" id = "grid-item9">X</div>
+                <div class = "grid-item" id = "grid-item1" onclick = "changeTable(); function1()"></div>
+                <div class = "grid-item" id = "grid-item2" onclick = "changeTable(); function2()"></div>
+                <div class = "grid-item" id = "grid-item3" onclick = "changeTable(); function3()"></div>
+                <div class = "grid-item" id = "grid-item4" onclick = "changeTable(); function4()"></div>
+                <div class = "grid-item" id = "grid-item5" onclick = "changeTable(); function5()"></div>
+                <div class = "grid-item" id = "grid-item6" onclick = "changeTable(); function6()"></div>
+                <div class = "grid-item" id = "grid-item7" onclick = "changeTable(); function7()"></div>
+                <div class = "grid-item" id = "grid-item8" onclick = "changeTable(); function8()"></div>
+                <div class = "grid-item" id = "grid-item9" onclick = "changeTable(); function9()"></div>
                 
             </div>
     
     
             <!--Player's turn -->
-            <div class = "players-turn">
+            <div class = "playerTurn" id = "page2">
                 <form>
-                    <p>X's turn</p>
+                    <p></p>
                 </form>
             </div>
     
             <!-- left container -->
     
-            <div class = "left-container" id = "page2">
+            <div class = "left-container">
     
                 <!-- Score -->
                 <ul>
@@ -41,10 +41,10 @@
                     <li>Tie 0</li>
                 </ul>
     
-                <label for = "start-select" >Start with: </label>
-                <select id = "start-select">
-                    <option value="X">X</option>
-                    <option value="O">O</option>
+                <label for = "startWith">Start with: </label>
+                <select id = "startWith">
+                    <option value = "X">X</option>
+                    <option value = "O">O</option>
                 </select>
                 <!-- Play again button-->
     
@@ -52,7 +52,7 @@
             </div>
             
             <!-- right container -->
-            <div class = "right-container" id = "page2">
+            <div class = "right-container">
     
                 <!-- Title -->
                 <ul>
@@ -63,6 +63,9 @@
     
                 <!-- Start over button-->
                 <button type = "button" onclick = "startOver()" id = "start-over"> Start over!</button>
+                
+                <h3>How to play : </h3>
+                <a href = "index3.html" id = "rules"> Press here </a>
             </div>
 
         
