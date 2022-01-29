@@ -4,30 +4,29 @@
         <title>Tic Tac Toe</title>
 
         <link href = "style.css" rel = "stylesheet">
+
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     </head>
 
     <body>
         
         <!-- Table -->
             <div class = "grid-container">
-                <div class = "grid-item" id = "grid-item1" onclick = "changeTable(); function1()"></div>
-                <div class = "grid-item" id = "grid-item2" onclick = "changeTable(); function2()"></div>
-                <div class = "grid-item" id = "grid-item3" onclick = "changeTable(); function3()"></div>
-                <div class = "grid-item" id = "grid-item4" onclick = "changeTable(); function4()"></div>
-                <div class = "grid-item" id = "grid-item5" onclick = "changeTable(); function5()"></div>
-                <div class = "grid-item" id = "grid-item6" onclick = "changeTable(); function6()"></div>
-                <div class = "grid-item" id = "grid-item7" onclick = "changeTable(); function7()"></div>
-                <div class = "grid-item" id = "grid-item8" onclick = "changeTable(); function8()"></div>
-                <div class = "grid-item" id = "grid-item9" onclick = "changeTable(); function9()"></div>
-                
+                <div class = "grid-item" id = "grid-item0" onclick = "printPlayer(0)"></div>
+                <div class = "grid-item" id = "grid-item1" onclick = "printPlayer(1)"></div>
+                <div class = "grid-item" id = "grid-item2" onclick = "printPlayer(2)"></div>
+                <div class = "grid-item" id = "grid-item3" onclick = "printPlayer(3)"></div>
+                <div class = "grid-item" id = "grid-item4" onclick = "printPlayer(4)"></div>
+                <div class = "grid-item" id = "grid-item5" onclick = "printPlayer(5)"></div>
+                <div class = "grid-item" id = "grid-item6" onclick = "printPlayer(6)"></div>
+                <div class = "grid-item" id = "grid-item7" onclick = "printPlayer(7)"></div>
+                <div class = "grid-item" id = "grid-item8" onclick = "printPlayer(8)"></div>               
             </div>
     
     
             <!--Player's turn -->
-            <div class = "playerTurn" id = "page2">
-                <form>
-                    <p></p>
-                </form>
+            <div class = "playerTurn">
+                <p id = "page2"> </p>
             </div>
     
             <!-- left container -->
@@ -36,9 +35,9 @@
     
                 <!-- Score -->
                 <ul>
-                    <li>X &nbsp; 0</li>
-                    <li>O &nbsp; 0</li>
-                    <li>Tie 0</li>
+                    <li id = "scoreX">X &nbsp; 0</li>
+                    <li id = "scoreO">O &nbsp; 0</li>
+                    <li id = "scoreTie">Tie 0</li>
                 </ul>
     
                 <label for = "startWith">Start with: </label>
@@ -48,7 +47,7 @@
                 </select>
                 <!-- Play again button-->
     
-                <button type = "button" onclick = "playAgain()" id = "play-again"> Play again!</button>
+                <button type = "button" onclick = "playAgain()" id = "play-again"> Play!</button>
             </div>
             
             <!-- right container -->

@@ -1,10 +1,16 @@
-let score = {}, table, currentPlayer, visited = {};
+let currentPlayer, easyGame, hardGame, pvpGame, numberOfMatches;
+let visited = {}, table = {};
 
-function resetTable(){
-    score['X'] = ''; //X won
-    score['O'] = ''; //O won
-    score['Tie'] = ''; //Tie
-    table = {};
+let score = {
+    'X': 0,
+    'O': 0,
+    'Tie': 0
+}
+
+function resetScore(score){
+    score['X'] = 0; //X won
+    score['O'] = 0; //O won
+    score['Tie'] = 0; //Tie
 }
 
 function getValues() {
@@ -22,7 +28,7 @@ function initValues(table, visited) {
 }
 
 function startOver() {
-    resetTable();
+    resetTable(score);
     initValues(table, visited);
     window.location.href = "index1.html";
 }
@@ -30,29 +36,37 @@ function startOver() {
 function playAgain() {
     currentPlayer = document.getElementById('startWith').value;
     initValues(table, visited);
-    console.log(currentPlayer);
+    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
 }
 
 function changeTable() {
     table = getValues();
+    let nextPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
+    document.getElementById('page2').innerHTML = nextPlayer + "'s turn";
 }
 
 function easyMode() {
+    resetScore(score);
+    easyGame = true;
     window.location.href = "index2.html";
-    currentPlayer = document.getElementById('startWith').value;
-    document.querySelector('#page2 p').innerHTML = currentPlayer + "'s turn";
+    currentPlayer = 'X';
+    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
 }
 
 function hardMode() {
+    resetScore(score);
+    hardGame = true;
     window.location.href = "index2.html";
-    currentPlayer = document.getElementById('startWith').value;
-    document.querySelector('#page2 p').innerHTML = currentPlayer + "'s turn";
+    currentPlayer = 'X';
+    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
 }
 
 function PvP() {
+    resetScore(score);
+    pvpGame = true;
     window.location.href = "index2.html";
-    currentPlayer = document.getElementById('startWith').value;
-    document.querySelector('#page2 p').innerHTML = currentPlayer + "'s turn";
+    currentPlayer = 'X';
+    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
 }
 
 function allVisited() {
@@ -66,46 +80,68 @@ function allVisited() {
     return false;
 }
 
+function visitAll() {
+    for(let i = 0; i < 9; i++)
+        if(visited[i] === '')
+            visited[i] = currentPlayer;
+}
+
+function printScore(score) {
+    document.getElementById('scoreX').innerHTML = "X " + score['X'];
+    document.getElementById('scoreO').innerHTML = "O " + score['O'];
+    document.getElementById('scoreTie').innerHTML = "Tie " + score['Tie'];
+}
+
 function checkWinner(currentPlayer) {
     for(let i = 0; i < 9; i++){
         if(i == 0 || i == 3 || i == 6)
             if(visited[i] != '' && visited[i] == visited[i + 1] && visited[i] == visited[i + 2]){
-                console.log(currentPlayer + " won!");
                 score[currentPlayer]++;
+                visitAll();
+                printScore(score);
+                document.getElementById('page2').innerHTML = currentPlayer + " won!";
                 return;
             }
              
         if(i == 0 || i == 1 || i == 2)
             if(visited[i] != '' && visited[i] == visited[i + 3] && visited[i] == visited[i + 6]){
-                console.log(currentPlayer + " won!");
                 score[currentPlayer]++;
+                document.getElementById('page2').innerHTML = currentPlayer + " won!";
+                visitAll();
+                printScore(score);
                 return;
             }           
     }
 
     if(visited[0] != '' && visited[0] == visited[4] && visited[0] == visited[8]){
         score[currentPlayer]++;
-        console.log(currentPlayer + " won!");
+        document.getElementById('page2').innerHTML = currentPlayer + " won!";
+        visitAll();
+        printScore(score);
         return;
     }
     if(visited[2] != '' && visited[2] == visited[4] && visited[2] == visited[6]){
         score[currentPlayer]++;
-        console.log(currentPlayer + " won!");
+        document.getElementById('page2').innerHTML = currentPlayer + " won!";
+        visitAll();
+        printScore(score);
         return;
     }
 
     if(allVisited() == true){
-        console.log("Tie");
+        document.getElementById('page2').innerHTML = "Tie";
         score['Tie']++;
+        printScore(score);
         return;
     }
 }
 
-function function1() {
-    if(visited[0] == '') {
-        let grid = document.getElementById('grid-item1');
+function printPlayer(value) {
+    changeTable();
+    if(visited[value] === '') {
+        let grid = document.getElementById('grid-item' + value);
         grid.innerHTML = currentPlayer;
-        visited[0] = currentPlayer;
+        visited[value] = currentPlayer;
         checkWinner(currentPlayer);
         if(currentPlayer == 'X')
             currentPlayer = 'O';
@@ -113,99 +149,5 @@ function function1() {
     }  
 }
 
-function function2() {
-    if(visited[1] == '') {
-        let grid = document.getElementById('grid-item2');
-        grid.innerHTML = currentPlayer;
-        visited[1] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
 
-function function3() {
-    if(visited[2] == '') {
-        let grid = document.getElementById('grid-item3');
-        grid.innerHTML = currentPlayer;
-        visited[2] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
 
-function function4() {
-    if(visited[3] == '') {
-        let grid = document.getElementById('grid-item4');
-        grid.innerHTML = currentPlayer;
-        visited[3] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
-
-function function5() {
-    if(visited[4] == '') {
-        let grid = document.getElementById('grid-item5');
-        grid.innerHTML = currentPlayer;
-        visited[4] = currentPlayer;
-        checkWinner(currentPlayer);      
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
-
-function function6() {
-    if(visited[5] == '') {
-        let grid = document.getElementById('grid-item6');
-        grid.innerHTML = currentPlayer;
-        visited[5] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
-
-function function7() {
-    if(visited[6] == '') {
-        let grid = document.getElementById('grid-item7');
-        grid.innerHTML = currentPlayer;
-        visited[6] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
-
-function function8() {
-    if(visited[7] == '') {
-        let grid = document.getElementById('grid-item8');
-        grid.innerHTML = currentPlayer;
-        visited[7] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-}
-
-function function9() {
-    if(visited[8] == '') {
-        let grid = document.getElementById('grid-item9');
-        grid.innerHTML = currentPlayer;
-        visited[8] = currentPlayer;
-        checkWinner(currentPlayer);
-        if(currentPlayer == 'X')
-            currentPlayer = 'O';
-        else currentPlayer = 'X';
-    }  
-  
-}
