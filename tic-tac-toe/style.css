@@ -1,3 +1,23 @@
+/* Responsive website */
+
+@media (max-width: 640px) {
+     body {
+        font-size:1rem;
+    }
+}
+
+@media (max-width:960px) {
+    body {
+        font-size:1.2rem;
+    } 
+}
+
+@media (min-width:1100px) {
+    body {
+        font-size:1.5rem;
+    }
+}
+
 /* Grid styling*/
 
 body {
@@ -7,6 +27,7 @@ body {
     font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility; 
+    width: 99%;
 }
 
 div {
@@ -16,7 +37,7 @@ div {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    width: 600px;
+    width: 46%;
     height: 300px;
     margin: auto;
     position: relative;
@@ -24,11 +45,11 @@ div {
 
 .grid-item {
     border: 2px solid black;
-    width: 200px;
+    width: 230px;
     height: 150px;
 
     text-align: center;
-    font-size: 130px;
+    font-size: 8rem;
     color: #F1D2F0;
     background-color: #ac5fdb;
 }
@@ -39,7 +60,7 @@ div {
     margin: auto;
     position: relative;
     border: 2px solid black;
-    width: 600px;
+    width: 45%;
     height: 450px;
 }
 
@@ -51,7 +72,7 @@ div {
     text-align: center;
     display: block;
     position: relative;
-    width: 606px;
+    width: 45%;
     height: 180px;
     margin: 200px auto 0px;
     font-size: 80px;
@@ -71,7 +92,7 @@ div {
     color: #F1D2F0;
     text-align: left;
     font-size: 80px;
-    width: 350px;
+    width: 22%;
     margin-top: -660px;
     padding-top: 0;
     height: 670px;
@@ -91,6 +112,7 @@ ul {
 
 .right-container {
     float: right;
+    margin-right: 5px;
 }
 
 li#second-line  {
@@ -108,19 +130,20 @@ button {
     background-color: #ac5fdb;
     color: #F1D2F0;
     border-radius: 15px 15px;
+    width: 80%;
 }
 
 /* First page buttons*/
 button#firstPage {
-    width: 250px;
+    width: 50%;
     height: 90px;
-    font-size: 50px;
+    font-size: 4rem;
     margin:20px auto;
 }
 
 /* Second page buttons */
 button#start-over, button#play-again{
-    width: 300px;
+
     height: 120px;
     font-size: 50px;
     margin-left: 25px;
@@ -148,16 +171,23 @@ a#backToMenu {
 
 a#rules {
     float: right;
-    margin-top: -42px;
-    margin-right: 100px;
+    margin-top: -43px;
+    margin-right: 65px;
     font-size: 20px;
 }
+
 
 /* Text styling*/
 p, h1{
     font-size: 50px;
     color: #F1D2F0;
     text-align: center;
+}
+
+p#gameMode {
+    font-size: 40px;
+    margin-bottom: -60px;
+    margin-top: 0px;
 }
 
 h3 {

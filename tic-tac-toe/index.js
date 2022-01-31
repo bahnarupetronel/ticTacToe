@@ -1,4 +1,4 @@
-let currentPlayer, easyGame, hardGame, pvpGame, numberOfMatches;
+let currentPlayer, gameMode, numberOfMatches;
 let visited = {}, table = {};
 
 let score = {
@@ -7,66 +7,67 @@ let score = {
     'Tie': 0
 }
 
-function resetScore(score){
+function resetScore(){
     score['X'] = 0; //X won
     score['O'] = 0; //O won
     score['Tie'] = 0; //Tie
+    gameMode = '';
 }
 
-function getValues() {
+function getTable() {
     let table1 = document.querySelectorAll('.grid-item');
     table = Array.from(table1);    
     return table;
 }
 
-function initValues(table, visited) {
-    table = getValues(); 
+function initTable(table, visited) {
+    table = getTable(); 
     for(let index = 0; index < table.length; index++){
         table[index].innerText = '';
-        visited[index] = 0;
+        visited[index] = '';
     }
 }
 
 function startOver() {
-    resetTable(score);
-    initValues(table, visited);
     window.location.href = "index1.html";
+    resetScore();
+    initTable(table, visited); 
 }
 
-function playAgain() {
+function playAgain() {  
+    initTable(table, visited);
     currentPlayer = document.getElementById('startWith').value;
-    initValues(table, visited);
     document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
 }
 
-function changeTable() {
-    table = getValues();
+function updateTable() {
+    table = getTable();
     let nextPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
     document.getElementById('page2').innerHTML = nextPlayer + "'s turn";
 }
 
 function easyMode() {
-    resetScore(score);
-    easyGame = true;
-    window.location.href = "index2.html";
+    resetScore();
+    initTable();
+    gameMode = "Easy game vs PC";
     currentPlayer = 'X';
-    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
+    window.location.href = "index2.html";
 }
 
 function hardMode() {
-    resetScore(score);
-    hardGame = true;
-    window.location.href = "index2.html";
+    resetScore();
+    initTable();
+    gameMode = "Hard game vs PC";
     currentPlayer = 'X';
-    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
+    window.location.href = "index2.html";
 }
 
 function PvP() {
-    resetScore(score);
-    pvpGame = true;
-    window.location.href = "index2.html";
+    resetScore();
+    initTable();
+    gameMode = "Pvp game";
     currentPlayer = 'X';
-    document.getElementById('page2').innerHTML = currentPlayer + "'s turn";
+    window.location.href = "index2.html";
 }
 
 function allVisited() {
@@ -136,16 +137,66 @@ function checkWinner(currentPlayer) {
     }
 }
 
-function printPlayer(value) {
-    changeTable();
+function generateRandomIntegerInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function easyGame(currentPlayer) {
+    let index, findFreePosition = false;
+    while(findFreePosition === true)
+    {
+        index = generateRandomIntegerInRange(0, 8);
+        if(visited[index] === '')
+            findFreePosition = true;
+    }
+
+    updateTable();
+    let grid = document.getElementById('grid-item' + index);
+    grid.innerHTML = currentPlayer;
+    visited[value] = currentPlayer;
+    checkWinner(currentPlayer);
+
+    if(currentPlayer == 'X')
+            currentPlayer = 'O';
+    else currentPlayer = 'X';
+}
+
+function hardGame(currentPlayer) {
+    let index, findFreePosition = false;
+    while(findFreePosition === true)
+    {
+        index = generateRandomIntegerInRange(0, 8);
+        if(visited[index] === '')
+            findFreePosition = true;
+    }
+
+    updateTable();
+    let grid = document.getElementById('grid-item' + index);
+    grid.innerHTML = currentPlayer;
+    visited[value] = currentPlayer;
+    checkWinner(currentPlayer);
+
+    if(currentPlayer == 'X')
+            currentPlayer = 'O';
+    else currentPlayer = 'X';
+}
+
+function printPlayer(value) { 
     if(visited[value] === '') {
+        updateTable();
         let grid = document.getElementById('grid-item' + value);
         grid.innerHTML = currentPlayer;
         visited[value] = currentPlayer;
         checkWinner(currentPlayer);
+
         if(currentPlayer == 'X')
             currentPlayer = 'O';
         else currentPlayer = 'X';
+
+        if(gameMode === "Easy game vs PC")
+            easyGame(currentPlayer);
+        else if(gameMode === "Hard game vs PC")
+            hardGame(currentPlayer);
     }  
 }
 
