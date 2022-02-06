@@ -10,66 +10,75 @@
 
     <body>
         
-        <!-- Table -->
-            <div class = "grid-container">
-                <div class = "grid-item" id = "grid-item0" onclick = "printPlayer(0)"></div>
-                <div class = "grid-item" id = "grid-item1" onclick = "printPlayer(1)"></div>
-                <div class = "grid-item" id = "grid-item2" onclick = "printPlayer(2)"></div>
-                <div class = "grid-item" id = "grid-item3" onclick = "printPlayer(3)"></div>
-                <div class = "grid-item" id = "grid-item4" onclick = "printPlayer(4)"></div>
-                <div class = "grid-item" id = "grid-item5" onclick = "printPlayer(5)"></div>
-                <div class = "grid-item" id = "grid-item6" onclick = "printPlayer(6)"></div>
-                <div class = "grid-item" id = "grid-item7" onclick = "printPlayer(7)"></div>
-                <div class = "grid-item" id = "grid-item8" onclick = "printPlayer(8)"></div>               
-            </div>
-    
-    
-            <!--Player's turn -->
-            <div class = "playerTurn">
-                <p id = "page2"> </p>
-            </div>
-    
+        <div class = "secondPage">
+            
             <!-- left container -->
-    
-            <div class = "left-container">
-
-                <p id = "gameMode"></p>
-    
+        
+            <div class = "column" id = "left-container">
+        
                 <!-- Score -->
                 <ul>
                     <li id = "scoreX">X &nbsp; 0</li>
                     <li id = "scoreO">O &nbsp; 0</li>
                     <li id = "scoreTie">Tie 0</li>
                 </ul>
-    
-                <label for = "startWith">Start with: </label>
+        
+                <label for = "startWith" id = "chooseStarter">Start with: </label>
                 <select id = "startWith">
                     <option value = "X">X</option>
                     <option value = "O">O</option>
                 </select>
                 <!-- Play again button-->
-    
-                <button type = "button" onclick = "playAgain()" id = "play-again"> Play again!</button>
-            </div>
-            
-            <!-- right container -->
-            <div class = "right-container">
-    
-                <!-- Title -->
-                <ul>
-                    <li>Tic</li>
-                    <li id = "second-line">Tac</li>
-                    <li id = "third-line">Toe</li>
-                </ul>
-    
-                <!-- Start over button-->
-                <button type = "button" onclick = "startOver()" id = "start-over"> Start over!</button>
-                
-                <h3>How to play : </h3>
-                <a href = "index3.html" id = "rules"> Press here </a>
+        
+                <button type = "button" onclick = "playAgain()" id = "playAgain"> Play!</button>
             </div>
 
+            <!-- Table -->
+            <table class = "column" id = "board">
+                <tr>
+                    <td id = "grid-item0" onclick = "printPlayer(0)"></td>
+                    <td id = "grid-item1" onclick = "printPlayer(1)"></td>
+                    <td id = "grid-item2" onclick = "printPlayer(2)"></td>
+                </tr>
+                <tr>
+                    <td id = "grid-item3" onclick = "printPlayer(3)"></td>
+                    <td id = "grid-item4" onclick = "printPlayer(4)"></td>
+                    <td id = "grid-item5" onclick = "printPlayer(5)"></td>
+                </tr>
+                <tr>
+                    <td id = "grid-item6" onclick = "printPlayer(6)"></td>
+                    <td id = "grid-item7" onclick = "printPlayer(7)"></td>
+                    <td id = "grid-item8" onclick = "printPlayer(8)"></td>
+                </tr>
+            </table>          
         
+                
+            <!-- right container -->
+            <div class = "column" id = "right-container">
+        
+                <!-- Title -->
+                <ul>
+                    <li id = "firstLine">Tic</li>
+                    <li id = "secondLine">Tac</li>
+                    <li id = "thirdLine">Toe</li>
+                </ul>
+        
+                <!-- Start over button-->
+                <button type = "button" onclick = "startOver()" id = "startOver"> Start over!</button>
+                    
+                <a href = "index3.html" id = "rules"> How to play? </a>
+            </div>
+             
+            <!--Player's turn -->
+            <form  class = "column" id = "playerTurn">
+                <p id = "displayPlayersTurn"> </p>
+            </form>
+
+            <!-- Game mode-->
+
+            <p id = "showGameMode"></p>
+                          
+        </div>
     </body>
     <script src = "index.js"></script>
 </html>

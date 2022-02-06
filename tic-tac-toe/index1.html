@@ -10,49 +10,42 @@
 
     <body>
         
-        <!-- Table -->
-        <div class = "firstPageContainer">
+        <div class = "firstPage"> 
 
-            <button type = "button" id = "firstPage" onclick = "easyMode()" > Easy </button>
-            <button type = "button" id = "firstPage" onclick = "hardMode()"> Hard </button>
-            <button type = "button" id = "firstPage" onclick = "PvP()"> PvP </button>
+            <!-- left container -->
 
-            <p>Choose Game</p>
+            <div class = "column" id = "left-container">
+                <!-- Score -->
+                <ul>
+                    <li>X &nbsp; 0</li>
+                    <li>O &nbsp; 0</li>
+                    <li>Tie 0</li>
+                </ul>
+            </div>
+
+            <!-- Table -->
+            <div class = "column" id = "firstPageContainer">
+                <p id = "chooseGameMode">Choose Game Mode</p>  
+                <button type = "button" onclick = "easyMode()" > Easy </button>
+                <button type = "button" onclick = "hardMode()"> Hard </button>
+                <button type = "button" onclick = "PvP()"> PvP </button>
+            </div>
             
-        </div>
+            <!-- right container -->
+            <div class = "column" id = "right-container">
+                <!-- Title -->
+                <ul>
+                    <li>Tic</li>
+                    <li id = "secondLine">Tac</li>
+                    <li id = "thirdLine">Toe</li>
+                </ul>
+            </div>
 
-        <!--Player's turn -->
-        <div class = "playerTurn" id = "page1">
-            <form>
+            <!--Player's turn -->
+            <form class = "column" id = "playerTurn">
 
             </form>
-        </div>
-
-        <!-- left container -->
-
-        <div class = "left-container" id = "page1">
-
-            <!-- Score -->
-            <ul>
-                <li>X &nbsp; 0</li>
-                <li>O &nbsp; 0</li>
-                <li>Tie 0</li>
-            </ul>
-
-        </div>
-        
-        <!-- right container -->
-        <div class = "right-container" id = "page1">
-
-            <!-- Title -->
-            <ul>
-                <li>Tic</li>
-                <li id = "second-line">Tac</li>
-                <li id = "third-line">Toe</li>
-            </ul>
-
-        </div>
+        </div>   
     </body>
-
     <script src = "index.js"></script>
 </html>
