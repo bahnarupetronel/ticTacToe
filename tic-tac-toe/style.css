@@ -49,8 +49,8 @@ table{
 }
   
 td {
-    width: 33.31%;
-    height: 33.31%;
+    width: 33.3%;
+    height: 33.3%;
     border: 1px solid black;
     font-size: 7vw;
     text-align: center;
@@ -252,6 +252,6 @@ label#chooseStarter {
 
 @media screen and (min-width: 1600px){
     #left-container, #right-container, table.column, div#firstPageContainer, form#playerTurn{
-        border: 4px solid black;
+        border: 3.5px solid black;
     }
 }
