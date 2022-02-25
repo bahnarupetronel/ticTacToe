@@ -1,12 +1,51 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Refresh" content="2; url=tic-tac-toe/index1.html">
-  </head>
-  <body>
-    <div id="root"></div>
-    
-  </body>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+
+        <link href = "style.css" rel = "stylesheet">
+
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    </head>
+
+    <body>
+        
+        <div class = "firstPage"> 
+
+            <!-- left container -->
+
+            <div class = "column" id = "left-container">
+                <!-- Score -->
+                <ul>
+                    <li>X &nbsp; 0</li>
+                    <li>O &nbsp; 0</li>
+                    <li>Tie 0</li>
+                </ul>
+            </div>
+
+            <!-- Table -->
+            <div class = "column" id = "firstPageContainer">
+                <p id = "chooseGameMode">Choose Game Mode</p>  
+                <button type = "button" onclick = "easyMode()" > Easy </button>
+                <button type = "button" onclick = "hardMode()"> Hard </button>
+                <button type = "button" onclick = "PvP()"> PvP </button>
+            </div>
+            
+            <!-- right container -->
+            <div class = "column" id = "right-container">
+                <!-- Title -->
+                <ul>
+                    <li>Tic</li>
+                    <li id = "secondLine">Tac</li>
+                    <li id = "thirdLine">Toe</li>
+                </ul>
+            </div>
+
+            <!--Player's turn -->
+            <form class = "column" id = "playerTurn">
+
+            </form>
+        </div>   
+    </body>
+    <script src = "index.js"></script>
 </html>
